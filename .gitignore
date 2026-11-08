@@ -1,0 +1,17 @@
+# Kaggle datasets
+data/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual envirmonents
+.venv/
+venv/
+
+# Jupyter Notebook
+.ipynb_checkpints/
+
+# Credentials
+.env
+kaggle.json

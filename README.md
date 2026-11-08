@@ -18,11 +18,21 @@ This repository documents exploratory data analysis, preprocessing, baseline mod
    ```
 
 3. Sign in to Kaggle and accept the competition rules on the [competition page](https://www.kaggle.com/competitions/playground-series-s6e11/overview). If Kaggle asks for authentication locally, follow the [KaggleHub authentication instructions](https://github.com/Kaggle/kagglehub#authenticate).
+
+   In PowerShell, authenticate once with the project's virtual environment:
+
+   ```powershell
+   .\.venv\Scripts\python.exe -c "from pathlib import Path; from getpass import getpass; p = Path.home() / '.kaggle' / 'access_token'; p.parent.mkdir(parents=True, exist_ok=True); p.write_text(getpass('Kaggle API token: ').strip(), encoding='utf-8')"
+   ```
+
+   Paste your `KGAT_...` token at the hidden prompt. This saves it in `~/.kaggle/access_token`, outside this repository. In KaggleHub 1.0.3, `kagglehub.login()` only authenticates the current Python process. Never put the token in source files.
 4. Download the original files:
 
    ```bash
    python download_data.py
    ```
+
+   If the virtual environment is not activated, use `.\.venv\Scripts\python.exe download_data.py` in PowerShell.
 
 This places `train.csv`, `test.csv`, and `sample_submission.csv` in the local `data/` folder. The folder is ignored by Git so raw competition data does not need to be committed.
 
